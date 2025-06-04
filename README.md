@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# Feedback Form - Static HTML Version
 
-## Project info
+Это статическая HTML версия формы обратной связи, преобразованная из React приложения. Приложение использует чистый HTML, обычный CSS и ванильный JavaScript.
 
-**URL**: https://lovable.dev/projects/17145f1e-b610-456a-b36e-0fa2dbef0590
+## Функциональность
 
-## How can I edit this code?
+- **Адаптивный дизайн** - полностью адаптивная верстка для всех устройств
+- **Интерактивная форма** - рейтинговые слайдеры с возможностью выбора от 1 до 5
+- **Поля для комментариев** - текстовые области с автоматическим изменением размера
+- **Валидация и отправка** - обработка формы с выводом данных в консоль
+- **Доступность** - поддержка навигации с клавиатуры и ARIA атрибуты
 
-There are several ways of editing your application.
+## Структура проекта
 
-**Use Lovable**
+```
+/
+├── index.html          # Главный HTML файл с разметкой и JavaScript
+├── styles.css          # Все стили в отдельном файле
+├── package.json        # Упрощенный package.json для статического проекта
+└── README.md          # Документация
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/17145f1e-b610-456a-b36e-0fa2dbef0590) and start prompting.
+## Запуск проекта
 
-Changes made via Lovable will be committed automatically to this repo.
+### Метод 1: Простое открытие
+Просто откройте `index.html` в браузере.
 
-**Use your preferred IDE**
+### Метод 2: Локальный сервер (рекомендуется)
+```bash
+# Установить зависимости
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Запустить dev сервер
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Проект откроется на `http://localhost:3000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Метод 3: Альтернативные серверы
+```bash
+# Python 3
+python -m http.server 3000
 
-**Use GitHub Codespaces**
+# Python 2
+python -m SimpleHTTPServer 3000
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Node.js
+npx http-server . -p 3000
 
-## What technologies are used for this project?
+# PHP
+php -S localhost:3000
+```
 
-This project is built with:
+## Особенности реализации
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### CSS и стилизация
+- Обычный CSS в отдельном файле `styles.css`
+- Кастомные стили для всех элементов (кнопки, слайдеры, переходы)
+- Полная адаптивность с медиа-запросами для разных устройств
 
-## How can I deploy this project?
+### JavaScript функциональность
+- **Управление состоянием** - объект `formData` хранит все данные формы
+- **Динамическое создание элементов** - функции для генерации компонентов
+- **Обработка событий** - рейтинги, комментарии, отправка формы
+- **Автоматическое изменение размера** текстовых областей
 
-Simply open [Lovable](https://lovable.dev/projects/17145f1e-b610-456a-b36e-0fa2dbef0590) and click on Share -> Publish.
+### Доступность
+- ARIA атрибуты для всех интерактивных элементов
+- Поддержка навигации с клавиатуры
+- Семантическая HTML разметка
 
-## Can I connect a custom domain to my Lovable project?
+## Вопросы формы
 
-Yes, you can!
+1. How happy are you with the current speed of the team?
+2. How would you rate the team members' skill level?
+3. Based on your experience with the team, how would you assess their independence and self-sufficiency in doing their work?
+4. How proactive is the team? Do they make valuable contributions to the project or just follow instructions?
+5. How would you rate the team's adherence to established best practices and conventions?
+6. How would you rate the quality of the team's communications?
+7. How would you rate the quality of the team's deliverables?
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Технологии
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **HTML5** - семантическая разметка
+- **CSS3** - обычные стили с медиа-запросами
+- **JavaScript (ES6+)** - интерактивность и логика
+- **SVG** - иконки
+
+## Поддержка браузеров
+
+Проект совместим со всеми современными браузерами:
+- Chrome 60+
+- Firefox 60+
+- Safari 12+
+- Edge 79+
+
+## Развертывание
+
+Для продакшн развертывания просто загрузите `index.html` на любой веб-сервер. Файл полностью самодостаточен и не требует дополнительных ресурсов.
