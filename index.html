@@ -11,11 +11,8 @@
 
   <body>
     <main class="main-container">
-      <div class="content-wrapper">
-        <div class="inner-wrapper">
-          
-          <!-- Header Section -->
-          <header class="header">
+      <!-- Header Section -->
+      <header class="header">
             <h1>Help us improve</h1>
             <p>Has your overall satisfaction with the team changed since your last feedback submission?</p>
             
@@ -56,12 +53,8 @@
             <div id="questionsContainer"></div>
             
             <!-- Submit Button -->
-            <button type="submit" class="submit-button">
-              <span class="submit-button-text">SEND</span>
-            </button>
+            <button type="submit" class="submit-button">SEND</button>
           </form>
-        </div>
-      </div>
     </main>
 
     <script>
@@ -159,12 +152,10 @@
         return `
           <section class="question-section">
             <h3 class="question-title">${question}</h3>
-            <div class="question-controls">
-              <div id="rating-slider-${index}">
-                ${createRatingSlider(index, formData.questions[index].rating)}
-              </div>
-              ${createCommentInput(index)}
+            <div id="rating-slider-${index}">
+              ${createRatingSlider(index, formData.questions[index].rating)}
             </div>
+            ${createCommentInput(index)}
           </section>
         `;
       }

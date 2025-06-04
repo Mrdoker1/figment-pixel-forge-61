@@ -16,26 +16,7 @@ body {
 .main-container {
   min-height: 100vh;
   background-color: white;
-}
-
-.content-wrapper {
-  max-width: 100%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding-bottom: 40px;
-}
-
-.inner-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  width: 100%;
-  padding-bottom: 64px;
 }
 
 /* Header section */
@@ -170,7 +151,6 @@ body {
 .question-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 20px;
   width: 100%;
 }
@@ -184,14 +164,7 @@ body {
   margin: 0;
 }
 
-.question-controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
-}
+
 
 /* Rating slider */
 .rating-slider {
@@ -263,34 +236,21 @@ body {
 
 /* Submit button */
 .submit-button {
-  display: flex;
   width: 300px;
   height: 50px;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  padding: 15.5px 2px;
   border-radius: 25px;
   border: 2px solid #C1272D;
   background-color: transparent;
+  color: #C1272D;
+  font-size: 19px;
+  font-weight: normal;
+  text-transform: uppercase;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .submit-button:hover {
   background-color: #C1272D;
-}
-
-.submit-button-text {
-  color: #C1272D;
-  font-size: 19px;
-  font-weight: normal;
-  line-height: 19px;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-}
-
-.submit-button:hover .submit-button-text {
   color: white;
 }
 
@@ -301,9 +261,8 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .content-wrapper {
-    width: 100%;
-    padding: 0 20px;
+  .main-container {
+    padding: 0 15px;
   }
 
   .header {
@@ -342,8 +301,8 @@ body {
 }
 
 @media (max-width: 640px) {
-  .content-wrapper {
-    padding: 0 15px;
+  .main-container {
+    padding: 0 10px;
   }
 
   .header {
@@ -394,9 +353,6 @@ body {
   .submit-button {
     width: 200px;
     height: 45px;
-  }
-
-  .submit-button-text {
     font-size: 16px;
   }
 } 
