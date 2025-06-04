@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx serve . -s -l 3000",
+    "dev": "npx live-server --port=3000 --open=/index.html",
     "build": "echo 'Build complete - static HTML ready'",
-    "preview": "npx serve . -s -l 4173"
+    "preview": "npx live-server --port=4173 --open=/index.html"
   },
   "devDependencies": {
-    "serve": "^14.2.4"
+    "live-server": "^1.2.2"
   }
 }
