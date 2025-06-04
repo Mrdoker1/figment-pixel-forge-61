@@ -6,6 +6,10 @@
     <title>Feedback Form</title>
     <meta name="description" content="Team Feedback Form" />
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
   </head>
 
@@ -13,34 +17,36 @@
     <main class="main-container">
       <!-- Header Section -->
       <header class="header">
-            <h1>Help us improve</h1>
-            <p>Has your overall satisfaction with the team changed since your last feedback submission?</p>
-            
-            <!-- Initial Comment Input -->
-            <div class="comment-input-wrapper">
-              <textarea
-                id="initialComment"
-                placeholder="Share your thoughts about the team's overall performance..."
-                class="comment-textarea"
-                rows="3"
-                oninput="autoResize(this)"
-              ></textarea>
-              <button
-                type="button"
-                class="mic-button"
-                aria-label="Voice input"
-              >
-                <img src="mic.svg" alt="Microphone icon" class="mic-icon">
-              </button>
-            </div>
-            
-            <p class="disclaimer">
-              *This form is used for collecting formal feedback from customers on
-              a regular basis. The results of the survey will be used for
-              improving the quality of our services and optimizing the work of the
-              project team.
-            </p>
-          </header>
+        <div class="header-content">
+          <h1>Help us improve</h1>
+          <p>Has your overall satisfaction with the team changed since your last feedback submission?</p>
+          
+          <!-- Initial Comment Input -->
+          <div class="comment-input-wrapper">
+            <textarea
+              id="initialComment"
+              placeholder="Share your thoughts about the team's overall performance..."
+              class="comment-textarea"
+              rows="3"
+              oninput="autoResize(this)"
+            ></textarea>
+            <button
+              type="button"
+              class="mic-button"
+              aria-label="Voice input"
+            >
+              <img src="mic.svg" alt="Microphone icon" class="mic-icon">
+            </button>
+          </div>
+          
+          <p class="disclaimer">
+            *This form is used for collecting formal feedback from customers on
+            a regular basis. The results of the survey will be used for
+            improving the quality of our services and optimizing the work of the
+            project team.
+          </p>
+        </div>
+      </header>
           
           <!-- Feedback Form -->
           <form 
