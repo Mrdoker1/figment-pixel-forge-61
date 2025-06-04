@@ -299,9 +299,6 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .main-container {
-    padding: 0 15px;
-  }
 
   .header {
     padding: 40px 20px;
@@ -408,4 +405,57 @@ body {
     height: 45px;
     font-size: 16px;
   }
-} 
+}
+
+/* Radio button styles for rating inputs */
+.rating-input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-dot-inactive);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.rating-input:hover {
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.rating-input:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.rating-input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.rating-input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.rating-dots-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-line);
+  margin: 0;
+}
