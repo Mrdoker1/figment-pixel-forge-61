@@ -1,10 +1,15 @@
 # Feedback Form
 
-Статическая HTML форма обратной связи с рейтинговыми слайдерами и полями для комментариев.
+Static HTML feedback form with rating sliders and comment fields.
+
+## Files
+
+- `index.html` - dynamic version with JavaScript-generated questions
+- `index-static.html` - static version with pre-written HTML markup
 
 ```bash
 npm install
 npm run dev
 ```
 
-Откроется на `http://localhost:3000`
+Opens at `http://localhost:3000`
