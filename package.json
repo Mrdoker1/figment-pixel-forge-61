@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx http-server . -p 3000 -o",
+    "dev": "npx serve . -s -l 3000",
     "build": "echo 'Build complete - static HTML ready'",
-    "preview": "npx http-server . -p 4173 -o"
+    "preview": "npx serve . -s -l 4173"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "serve": "^14.2.4"
   }
 }
