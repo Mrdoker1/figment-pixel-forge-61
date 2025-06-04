@@ -23,9 +23,9 @@
             <div class="comment-input-wrapper">
               <textarea
                 id="initialComment"
-                placeholder="Add your comment"
+                placeholder="Share your thoughts about the team's overall performance..."
                 class="comment-textarea"
-                rows="1"
+                rows="3"
                 oninput="autoResize(this)"
               ></textarea>
               <button
@@ -84,8 +84,14 @@
 
       // Auto-resize textarea function
       function autoResize(textarea) {
+        // Reset height to recalculate
         textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px';
+        
+        // Set minimum height
+        const minHeight = parseInt(getComputedStyle(textarea).minHeight) || 56;
+        const newHeight = Math.max(textarea.scrollHeight, minHeight);
+        
+        textarea.style.height = newHeight + 'px';
       }
 
       // Create rating slider component
@@ -127,14 +133,14 @@
       }
 
       // Create comment input component
-      function createCommentInput(questionIndex, placeholder = "Add your comment") {
+      function createCommentInput(questionIndex, placeholder = "Please elaborate on your rating...") {
         return `
           <div class="comment-input-wrapper">
             <textarea
               id="comment-${questionIndex}"
               placeholder="${placeholder}"
               class="comment-textarea"
-              rows="1"
+              rows="2"
               oninput="autoResize(this); handleCommentChange(${questionIndex}, this.value)"
             ></textarea>
             <button
