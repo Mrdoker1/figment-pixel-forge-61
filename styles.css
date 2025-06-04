@@ -1,7 +1,7 @@
 /* CSS Custom Properties (глобальные переменные) */
 :root {
   /* Layout */
-  --max-content-width: 800px;
+  --max-content-width: 1024px;
   
   /* Colors */
   --color-white: white;
@@ -43,12 +43,12 @@ body {
 /* Header section */
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 20px;
   width: 100%;
   background-color: var(--color-background-light);
-  padding: 64px 30px;
+  padding: 64px 45px;
 }
 
 .header-content {
@@ -93,12 +93,12 @@ body {
 /* Form styles */
 .feedback-form {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   gap: 60px;
   width: 100%;
-  padding: 0 30px;
+  padding: 0 45px;
 }
 
 /* Comment textarea styles */
