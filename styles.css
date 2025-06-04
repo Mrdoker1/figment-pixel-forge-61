@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
   max-width: 800px;
 }
@@ -173,7 +173,6 @@ body {
 
 .question-title {
   width: 100%;
-  color: #4F4F4F;
   font-size: 24px;
   font-weight: normal;
   line-height: 34px;
@@ -190,9 +189,13 @@ body {
   box-sizing: border-box;
 }
 
+.rating-labels-row {
+  display: none; /* Скрыто на десктопе */
+}
+
 .rating-label {
-  color: black;
-  font-size: 17px;
+  color: #4F4F4F;
+  font-size: 15px;
   font-weight: normal;
   line-height: 24px;
   flex-shrink: 0;
@@ -301,7 +304,7 @@ body {
   }
 
   .rating-label {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .question-title {
@@ -324,7 +327,7 @@ body {
   }
 
   .header h1 {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .header p {
@@ -346,13 +349,24 @@ body {
   }
 
   .comment-textarea {
-    font-size: 16px;
+    font-size: 14px;
     min-height: 36px;
   }
 
   .rating-slider {
+    flex-direction: column;
     gap: 15px;
     height: auto;
+  }
+
+  .rating-labels-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .rating-slider > .rating-label {
+    display: none; /* Скрываем прямые дочерние лейблы на мобильных */
   }
 
   .rating-dots-container {

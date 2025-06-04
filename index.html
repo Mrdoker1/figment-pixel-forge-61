@@ -19,7 +19,7 @@
       <header class="header">
         <div class="header-content">
           <h1>Help us improve</h1>
-          <p>Has your overall satisfaction with the team changed since your last feedback submission?</p>
+          <p class="question-title">Has your overall satisfaction with the team changed since your last feedback submission?</p>
           
           <!-- Initial Comment Input -->
           <div class="comment-input-wrapper">
@@ -114,6 +114,10 @@
 
         return `
           <div class="rating-slider">
+            <div class="rating-labels-row">
+              <div class="rating-label">NOT HAPPY AT ALL</div>
+              <div class="rating-label">IT'S AMAZING!</div>
+            </div>
             <div class="rating-label">NOT HAPPY AT ALL</div>
             <div class="rating-dots-container">
               ${renderDot(1)}
