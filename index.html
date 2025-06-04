@@ -6,88 +6,38 @@
     <title>Feedback Form</title>
     <meta name="description" content="Team Feedback Form" />
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Custom styles for mic icon */
-      .mic-icon {
-        width: 16px;
-        height: 16px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-      
-      /* Focus styles for accessibility */
-      .rating-dot:focus {
-        outline: 2px solid #C1272D;
-        outline-offset: 2px;
-      }
-      
-      /* Transition for submit button */
-      .submit-btn {
-        transition: all 0.2s ease;
-      }
-      
-      .submit-btn:hover {
-        background-color: #C1272D;
-        color: white;
-      }
-      
-      .submit-btn:hover .btn-text {
-        color: white;
-      }
-      
-      /* Textarea auto-resize */
-      textarea {
-        resize: none;
-        overflow: hidden;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
-  <body class="bg-white">
-    <main class="min-h-screen bg-white">
-      <div class="flex w-[1440px] flex-col items-center min-h-screen bg-white pb-10 max-md:w-full max-md:px-5 max-md:py-0 max-sm:px-[15px] max-sm:py-0 mx-auto">
-        <div class="flex flex-col justify-center items-center gap-8 w-full pb-16">
+  <body>
+    <main class="main-container">
+      <div class="content-wrapper">
+        <div class="inner-wrapper">
           
           <!-- Header Section -->
-          <header class="flex flex-col items-start gap-5 w-full bg-[#F6F6F6] px-[30px] py-16 max-md:px-5 max-md:py-10 max-sm:px-[15px] max-sm:py-[30px]">
-            <h1 class="w-full text-[#28292B] text-[54px] font-bold leading-[54px] max-md:text-[42px] max-sm:text-[32px]">
-              Help us improve
-            </h1>
-            <p class="w-full text-[#4F4F4F] text-2xl font-normal leading-[31.2px] max-md:text-xl max-sm:text-lg">
-              Has your overall satisfaction with the team changed since your last
-              feedback submission?
-            </p>
+          <header class="header">
+            <h1>Help us improve</h1>
+            <p>Has your overall satisfaction with the team changed since your last feedback submission?</p>
             
             <!-- Initial Comment Input -->
-            <div class="flex h-20 max-w-[800px] justify-end items-end gap-2.5 w-full rounded border bg-white p-3 border-solid border-[#B5B5B5] max-sm:h-[60px]">
+            <div class="comment-input-wrapper">
               <textarea
                 id="initialComment"
                 placeholder="Add your comment"
-                class="flex-[1_0_0] self-stretch text-[#707070] text-lg font-normal leading-6 max-sm:text-base bg-transparent border-none outline-none resize-none"
+                class="comment-textarea"
                 rows="1"
                 oninput="autoResize(this)"
               ></textarea>
               <button
                 type="button"
-                class="flex items-center justify-center w-[30px] h-[31px] rounded-[20px] bg-[#E8E8E8] flex-shrink-0"
+                class="mic-button"
                 aria-label="Voice input"
               >
-                <svg class="mic-icon">
-                  <path d="m12 1-3 2 2 4 2-4-1-2z"></path>
-                  <path d="M8 11a4 4 0 1 0 8 0V4a4 4 0 1 0-8 0v7z"></path>
-                  <path d="m19 11-1 3-1-3"></path>
-                  <path d="m5 11 1 3 1-3"></path>
-                  <path d="M12 19v4"></path>
-                  <path d="m4 23 16 0"></path>
-                </svg>
+                <img src="mic.svg" alt="Microphone icon" class="mic-icon">
               </button>
             </div>
             
-            <p class="w-full text-[#5F5F5F] text-base font-normal leading-[20.8px]">
+            <p class="disclaimer">
               *This form is used for collecting formal feedback from customers on
               a regular basis. The results of the survey will be used for
               improving the quality of our services and optimizing the work of the
@@ -98,7 +48,7 @@
           <!-- Feedback Form -->
           <form 
             id="feedbackForm"
-            class="flex flex-col justify-center items-start gap-[60px] w-full px-[30px] py-0 max-md:gap-10 max-md:px-5 max-md:py-0 max-sm:gap-[30px] max-sm:px-[15px] max-sm:py-0"
+            class="feedback-form"
             onsubmit="handleSubmit(event)"
           >
             
@@ -106,13 +56,8 @@
             <div id="questionsContainer"></div>
             
             <!-- Submit Button -->
-            <button
-              type="submit"
-              class="submit-btn flex w-[300px] h-[50px] justify-center items-center relative cursor-pointer px-0.5 py-[15.5px] rounded-[25px] border-2 border-solid border-[#C1272D] max-md:w-[250px] max-sm:w-[200px] max-sm:h-[45px]"
-            >
-              <span class="btn-text text-[#C1272D] text-[19px] font-normal leading-[19px] uppercase max-sm:text-base">
-                SEND
-              </span>
+            <button type="submit" class="submit-button">
+              <span class="submit-button-text">SEND</span>
             </button>
           </form>
         </div>
@@ -145,36 +90,27 @@
 
       // Create rating slider component
       function createRatingSlider(questionIndex, currentRating) {
-        const handleDotClick = (rating) => {
-          formData.questions[questionIndex].rating = rating;
-          updateRatingDisplay(questionIndex, rating);
-        };
-
         const renderDot = (position) => {
           const isSelected = currentRating === position;
           return `
             <button
               type="button"
               onclick="handleRatingChange(${questionIndex}, ${position})"
-              class="rating-dot w-6 h-6 relative focus:outline-none focus:ring-2 focus:ring-[#C1272D] focus:ring-offset-2 rounded-full"
+              class="rating-dot"
               aria-label="Rating ${position} out of 5"
             >
-              <div class="w-6 h-6 rounded-[20px] border-2 border-solid ${
-                isSelected ? 'border-[#C1272D]' : 'border-[#949494]'
-              }"></div>
-              ${isSelected ? '<div class="w-3 h-3 rounded-full bg-[#C1272D] absolute left-1.5 top-1.5"></div>' : ''}
+              <div class="dot-circle ${isSelected ? 'selected' : ''}"></div>
+              ${isSelected ? '<div class="dot-inner"></div>' : ''}
             </button>
           `;
         };
 
-        const renderLine = () => '<div class="flex-1 h-0.5 bg-[#DCDCDC]"></div>';
+        const renderLine = () => '<div class="rating-line"></div>';
 
         return `
-          <div class="flex h-11 max-w-[800px] items-center gap-11 w-full max-md:gap-5 max-sm:flex-col max-sm:gap-[15px] max-sm:h-auto">
-            <div class="text-black text-[17px] font-normal leading-6 max-md:text-sm max-sm:text-xs">
-              NOT HAPPY AT ALL
-            </div>
-            <div class="flex items-center gap-4 flex-[1_0_0] max-sm:w-full max-sm:max-w-[300px]">
+          <div class="rating-slider">
+            <div class="rating-label">NOT HAPPY AT ALL</div>
+            <div class="rating-dots-container">
               ${renderDot(1)}
               ${renderLine()}
               ${renderDot(2)}
@@ -185,9 +121,7 @@
               ${renderLine()}
               ${renderDot(5)}
             </div>
-            <div class="text-black text-[17px] font-normal leading-6 max-md:text-sm max-sm:text-xs">
-              IT'S AMAZING!
-            </div>
+            <div class="rating-label">IT'S AMAZING!</div>
           </div>
         `;
       }
@@ -195,27 +129,20 @@
       // Create comment input component
       function createCommentInput(questionIndex, placeholder = "Add your comment") {
         return `
-          <div class="flex h-20 max-w-[800px] justify-end items-end gap-2.5 w-full rounded border bg-white p-3 border-solid border-[#B5B5B5] max-sm:h-[60px]">
+          <div class="comment-input-wrapper">
             <textarea
               id="comment-${questionIndex}"
               placeholder="${placeholder}"
-              class="flex-[1_0_0] self-stretch text-[#707070] text-lg font-normal leading-6 max-sm:text-base bg-transparent border-none outline-none resize-none"
+              class="comment-textarea"
               rows="1"
               oninput="autoResize(this); handleCommentChange(${questionIndex}, this.value)"
             ></textarea>
             <button
               type="button"
-              class="flex items-center justify-center w-[30px] h-[31px] rounded-[20px] bg-[#E8E8E8] flex-shrink-0"
+              class="mic-button"
               aria-label="Voice input"
             >
-              <svg class="mic-icon">
-                <path d="m12 1-3 2 2 4 2-4-1-2z"></path>
-                <path d="M8 11a4 4 0 1 0 8 0V4a4 4 0 1 0-8 0v7z"></path>
-                <path d="m19 11-1 3-1-3"></path>
-                <path d="m5 11 1 3 1-3"></path>
-                <path d="M12 19v4"></path>
-                <path d="m4 23 16 0"></path>
-              </svg>
+              <img src="mic.svg" alt="Microphone icon" class="mic-icon">
             </button>
           </div>
         `;
@@ -224,11 +151,9 @@
       // Create rating question component
       function createRatingQuestion(question, index) {
         return `
-          <section class="flex flex-col items-start gap-5 w-full">
-            <h3 class="max-w-[800px] w-full text-[#4F4F4F] text-2xl font-normal leading-[34px] max-md:text-xl max-md:leading-7 max-sm:text-lg max-sm:leading-[26px]">
-              ${question}
-            </h3>
-            <div class="flex flex-col justify-end items-start gap-5 w-full">
+          <section class="question-section">
+            <h3 class="question-title">${question}</h3>
+            <div class="question-controls">
               <div id="rating-slider-${index}">
                 ${createRatingSlider(index, formData.questions[index].rating)}
               </div>
