@@ -1,3 +1,24 @@
+/* CSS Custom Properties (глобальные переменные) */
+:root {
+  /* Layout */
+  --max-content-width: 800px;
+  
+  /* Colors */
+  --color-white: white;
+  --color-text-primary: #333;
+  --color-text-secondary: #4F4F4F;
+  --color-text-tertiary: #5F5F5F;
+  --color-text-placeholder: #999;
+  --color-text-title: #28292B;
+  --color-background-light: #F6F6F6;
+  --color-border: #B5B5B5;
+  --color-border-active: #C1272D;
+  --color-accent: #C1272D;
+  --color-dot-inactive: #949494;
+  --color-line: #DCDCDC;
+  --color-accent-light: rgba(193, 39, 45, 0.1);
+}
+
 /* Reset and base styles */
 * {
   box-sizing: border-box;
@@ -7,15 +28,15 @@
 
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: white;
-  color: #333;
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
   line-height: 1.5;
 }
 
 /* Main container */
 .main-container {
   min-height: 100vh;
-  background-color: white;
+  background-color: var(--color-white);
   margin: 0 auto;
 }
 
@@ -26,7 +47,7 @@ body {
   align-items: flex-start;
   gap: 20px;
   width: 100%;
-  background-color: #F6F6F6;
+  background-color: var(--color-background-light);
   padding: 64px 30px;
 }
 
@@ -36,12 +57,12 @@ body {
   align-items: flex-start;
   gap: 24px;
   width: 100%;
-  max-width: 800px;
+  max-width: var(--max-content-width);
 }
 
 .header h1 {
   width: 100%;
-  color: #28292B;
+  color: var(--color-text-title);
   font-family: 'Open Sans', sans-serif;
   font-size: 54px;
   font-weight: bold;
@@ -51,7 +72,7 @@ body {
 
 .header p {
   width: 100%;
-  color: #4F4F4F;
+  color: var(--color-text-secondary);
   font-size: 24px;
   font-weight: normal;
   line-height: 31.2px;
@@ -60,7 +81,7 @@ body {
 
 .header .disclaimer {
   width: 100%;
-  color: #5F5F5F;
+  color: var(--color-text-tertiary);
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -89,22 +110,22 @@ body {
   gap: 10px;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid #B5B5B5;
-  background-color: white;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   padding: 12px;
   position: relative;
   transition: border-color 0.2s ease;
 }
 
 .comment-input-wrapper:focus-within {
-  border-color: #C1272D;
-  box-shadow: 0 0 0 2px rgba(193, 39, 45, 0.1);
+  border-color: var(--color-border-active);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
 }
 
 .comment-textarea {
   flex: 1;
   min-height: 56px;
-  color: #333;
+  color: var(--color-text-primary);
   font-size: 18px;
   font-weight: normal;
   line-height: 24px;
@@ -116,12 +137,12 @@ body {
 }
 
 .comment-textarea::placeholder {
-  color: #999;
+  color: var(--color-text-placeholder);
   line-height: 1.4;
 }
 
 .comment-textarea:focus {
-  color: #333;
+  color: var(--color-text-primary);
 }
 
 .mic-button {
@@ -152,7 +173,7 @@ body {
 #questionsContainer {
   display: flex;
   width: 100%;
-  max-width: 800px;
+  max-width: var(--max-content-width);
   gap: 60px;
   margin: 32px 0;
   flex-direction: column;
@@ -194,7 +215,7 @@ body {
 }
 
 .rating-label {
-  color: #4F4F4F;
+  color: var(--color-text-secondary);
   font-size: 15px;
   font-weight: normal;
   line-height: 24px;
@@ -220,7 +241,7 @@ body {
 }
 
 .rating-dot:focus {
-  outline: 2px solid #C1272D;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
@@ -228,18 +249,18 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 20px;
-  border: 2px solid #949494;
+  border: 2px solid var(--color-dot-inactive);
 }
 
 .dot-circle.selected {
-  border-color: #C1272D;
+  border-color: var(--color-accent);
 }
 
 .dot-inner {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #C1272D;
+  background-color: var(--color-accent);
   position: absolute;
   left: 6px;
   top: 6px;
@@ -248,7 +269,7 @@ body {
 .rating-line {
   flex: 1;
   height: 2px;
-  background-color: #DCDCDC;
+  background-color: var(--color-line);
 }
 
 /* Submit button */
@@ -256,9 +277,9 @@ body {
   width: 300px;
   height: 50px;
   border-radius: 25px;
-  border: 2px solid #C1272D;
+  border: 2px solid var(--color-accent);
   background-color: transparent;
-  color: #C1272D;
+  color: var(--color-accent);
   font-size: 19px;
   font-weight: normal;
   text-transform: uppercase;
@@ -267,8 +288,8 @@ body {
 }
 
 .submit-button:hover {
-  background-color: #C1272D;
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
 .submit-button:disabled {

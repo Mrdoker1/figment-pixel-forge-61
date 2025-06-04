@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Form</title>
-    <meta name="description" content="Team Feedback Form" />
+    <meta name="description" content="CSAT Feedback Form" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,6 @@
               placeholder="Share your thoughts about the team's overall performance..."
               class="comment-textarea"
               rows="3"
-              oninput="autoResize(this)"
             ></textarea>
             <button
               type="button"
@@ -78,20 +77,8 @@
       // Form data storage
       let formData = {
         initialComment: '',
-        questions: questions.map(() => ({ rating: 2, comment: '' }))
+        questions: questions.map(() => ({ rating: 3, comment: '' }))
       };
-
-      // Auto-resize textarea function
-      function autoResize(textarea) {
-        // Reset height to recalculate
-        textarea.style.height = 'auto';
-        
-        // Set minimum height
-        const minHeight = parseInt(getComputedStyle(textarea).minHeight) || 56;
-        const newHeight = Math.max(textarea.scrollHeight, minHeight);
-        
-        textarea.style.height = newHeight + 'px';
-      }
 
       // Create rating slider component
       function createRatingSlider(questionIndex, currentRating) {
@@ -144,7 +131,7 @@
               placeholder="${placeholder}"
               class="comment-textarea"
               rows="2"
-              oninput="autoResize(this); handleCommentChange(${questionIndex}, this.value)"
+              oninput="handleCommentChange(${questionIndex}, this.value)"
             ></textarea>
             <button
               type="button"
@@ -199,8 +186,6 @@
           const commentInput = document.getElementById(`comment-${index}`);
           formData.questions[index].comment = commentInput.value;
         });
-        
-        console.log('Feedback submitted:', formData);
         alert('Thank you for your feedback!');
       }
 
@@ -214,7 +199,6 @@
         // Set up initial comment handler
         document.getElementById('initialComment').addEventListener('input', function() {
           formData.initialComment = this.value;
-          autoResize(this);
         });
       }
 
