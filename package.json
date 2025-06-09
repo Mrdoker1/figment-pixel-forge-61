@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx live-server --port=3000 --open=/index.html",
-    "build": "echo 'Build complete - static HTML ready'",
+    "build": "cp -r public/* . 2>/dev/null || true && echo 'Build complete - static HTML ready'",
     "preview": "npx live-server --port=4173 --open=/index.html"
   },
   "devDependencies": {
