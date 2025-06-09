@@ -1,0 +1,16 @@
+{
+  "name": "feedback-form-static",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "cp -r public/* . 2>/dev/null || true && echo 'Build complete - static HTML ready'",
+    "preview": "npx live-server --port=4173 --open=/index.html",
+    "deploy:gh-pages": "npm run build && gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "live-server": "^1.2.2"
+  }
+}
